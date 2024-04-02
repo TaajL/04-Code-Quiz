@@ -1,8 +1,14 @@
-//Variables
+// Page Element Variables
 const timer = document.querySelector("p.clock");     
 const seconds = 90  
-const points = document.querySelector("#points");      
-const intro = document.querySelector("#intro");  
-const Q&A = document.querySelector("Q&A");  
-const timer = document.querySelector("questions");  
+const points = document.querySelector("#points");
+//sections
+//Section beginQuiz      
+const beginQuiz = document.querySelector("#beginQuiz");
+// sections Q&A
+const qandA = document.querySelector("Q&A");  
+const questions = document.querySelector("questions");  
 let questionCount = 0;
+const rightWrong = document.querySelector("#rightWrong");
+//Finished 
+
