@@ -12,5 +12,9 @@ let questionCount = 0;
 const rightWrong = document.querySelector("#rightWrong");
 //Finished 
 const finished = document.querySelector("#finished");
-
-
+//intitals
+const initials = document.querySelector("#initials");
+//Rank
+const rank = document.querySelector("#rank");
+const rankings = document.querySelector("#rankings");
+const rankList = [];
