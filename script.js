@@ -11,4 +11,6 @@ const questions = document.querySelector("questions");
 let questionCount = 0;
 const rightWrong = document.querySelector("#rightWrong");
 //Finished 
+const finished = document.querySelector("#finished");
+
 
