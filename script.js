@@ -18,3 +18,12 @@ const initials = document.querySelector("#initials");
 const rank = document.querySelector("#rank");
 const rankings = document.querySelector("#rankings");
 const rankList = [];
+//Buttons
+const viewscoreBtn = document.querySelector("#viewScore");
+const startBtn = document.querySelector("#Start");
+const scoresubBtn = document.querySelector("#scoreSubmission");
+const tryAgainBtn = document.querySelector("#tryAgain");
+const clearScoresbtn = document.querySelector("#clearScores");
+
+
+

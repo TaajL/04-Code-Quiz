@@ -13,7 +13,7 @@
         <!-- HSCore Bttn-->
         <div class="row">
             <div class="col-6"> 
-                <button id="view-scores" type="button" class="btn btn-secondary d-inline-block mt-1">View High Scores</button>
+                <button id="viewScores" type="button" class="btn btn-secondary d-inline-block mt-1">View High Scores</button>
             </div>
         <!--timer-->
             <div class="col-6">
@@ -44,10 +44,7 @@
                     <div class="col-6">
                         <h2 id=" questions">Questions</h2>
                         <ul> 
-                            <li></li>
-                            <li></li>
-                            <li></li>
-                            <li></li>
+                            <li><button id="answer1" value="0" class="btn btn-primary"></button></li>
                         </ul>
                         <div id="rightWrong"class="font-weight-light font-italic">
                             <div class="horizontal-line"></div>
@@ -64,8 +61,8 @@
                             <h3>Finished</h3>
                             <p>Final Score: <span id="points" class=" pl-1">0</span></p>
                             <p>Enter Initials: <Span class="ml-1"><input placeholder="initials"id="initials"></Span>
+                                <button id="scoreSubmission" class="btn btn-primary  d-block">Enter Score</button>
                             </p>
-                            <button id="scoreSubmission" class="btn btn-primary mx-auto d-block">Enter Score</button>
                         </div>
                 </div>        
             </Section>
@@ -78,8 +75,8 @@
                             <ol id="rankings">
 
                             </ol>
-                            <button></button>
-                            <button></button>
+                            <button id="tryAgain" class="btn-primary mx-auto d-block"></button>
+                            <button id="clearScores" class="btn-primary mx-auto d-block"></button>
                         </div>
                 </div>
             </Section>
