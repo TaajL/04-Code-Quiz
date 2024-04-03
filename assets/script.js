@@ -34,4 +34,15 @@ const answer4Btn = document.querySelector("#answer4")
 //Functions//
 
 //Timer// 
+const setClock = () => {
+    const timerInterval = setInterval(() => {
+      seconds--;
+      Clock.textContent = `Time: ${secondsLeft}s`;
 
+      if (secondsLeft === 0 || questionCount === questions.length) {
+        clearInterval(timerInterval);
+        handleQuizCompletion();
+      }
+    }, 1000);
+  };
+  
