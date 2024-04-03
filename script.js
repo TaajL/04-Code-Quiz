@@ -24,6 +24,12 @@ const startBtn = document.querySelector("#Start");
 const scoresubBtn = document.querySelector("#scoreSubmission");
 const tryAgainBtn = document.querySelector("#tryAgain");
 const clearScoresbtn = document.querySelector("#clearScores");
-
+// Answer Buttons 
+const answerBtn = document.querySelector("button.answerBtn")
+const answer1Btn = document.querySelector("#answer1")
+const answer1Btn = document.querySelector("#answer1")
+const answer2Btn = document.querySelector("#answer2")
+const answer3Btn = document.querySelector("#answer3")
+const answer4Btn = document.querySelector("#answer4")
 
 
