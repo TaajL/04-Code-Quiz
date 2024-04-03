@@ -46,3 +46,9 @@ const setClock = () => {
     }, 1000);
   };
   
+//Quiz completioon 
+function handleQuizCompletion () {
+    questions.style.display = "none";
+    finished.style.display = "block";
+    points.textContent = secondsLeft;
+}
