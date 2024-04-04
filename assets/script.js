@@ -74,4 +74,27 @@ function SetQeustion(id) {
         });
     }
 }
-//
+//Q&A True or False 
+Const quiz = [ 
+  {  //0
+    questions: "Commonly used data types do NOT include:",
+    asnwers: ["1. strings", "2. booleans", "3. alerts", "4. numbers"],
+    correctAnswer: "2"
+  },
+  {  //1
+    questions: "The condition in and if/else statement is enclosed within ____.",
+    asnwers: ["1. qoates", "2. curly brackets", "3. parentheses", "4. square bracket"],
+    correctAnswer: "1"
+  },
+  {  //2
+    questions: "Arrays in Javascript can be used to store ____.:",
+    asnwers: ["1. nubers and strings", "2. booleans", "3. other arrays", "4. all of the above"],
+    correctAnswer: "2"
+  },
+  {  //3
+    questions: "String values must be enclosed within ____ whem being assigned to varriables.:",
+    asnwers: ["1. commas", "2. curly brackets", "3. quotes", "4. parentheses"],
+    correctAnswer: "2"
+  },
+]
+  
