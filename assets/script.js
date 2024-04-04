@@ -65,12 +65,13 @@ const statQuiz () => {
 // set question 
 function SetQeustion(id) {
     if(id < questions.length){
-        const { questions, answers } = questions[id];
+        const { questions, asnwers } = questions[id];
 
         questions.textContent  = questions;
 
         [answer1Btn, answer2Btn, answer3Btn, answer4Btn].forEach((btn,i) => {
-
+            btn.textContent = asnwers[i]; 
         });
     }
 }
+//
