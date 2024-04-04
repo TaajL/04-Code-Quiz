@@ -124,7 +124,7 @@ function handleAnswerSelection(selectedAnswer) {
     const currentQuestion = quiz[questionCount];
     
     if (selectedAnswer !== currentQuestion.correctAnswer) {
-        seconds -= 8; // Subtract 10 seconds for wrong answers
+        seconds -= 8; // Subtract 8 seconds for wrong answers
     }
 
     // Update timer display
@@ -133,16 +133,36 @@ function handleAnswerSelection(selectedAnswer) {
     // Increment the questionCount to move to the next question
     questionCount++;
 
-    // Display the next question or end the quiz based on your logic
+    // Display the next question or end the quiz 
     if (questionCount < quiz.length) {
         displayNextQuestion();
     } else {
         endQuiz();
     }
+    function displayNextQuestion(currentQuestionIndex, questions) {
+        // Check if there are more questions to display
+        if (currentQuestionIndex < questions.length - 1) {
+            // Increment the current question index
+            const nextQuestionIndex = currentQuestionIndex + 1;
+    
+            // Get the next question from the questions array
+            const nextQuestion = questions[nextQuestionIndex];
+    
+            // Display the next question on the screen
+            console.log(`Next Question: ${nextQuestion}`);
+        } else {
+            console.log("End of Quiz. No more questions to display.");
+        }
+    }
+
+
+
+
+
 
 // Add event listeners to answer buttons
 answerBtn.forEach(btn => {
     btn.addEventListener('click', () => {
         handleAnswerSelection(btn.dataset.answer);
     });
-});
+})};
