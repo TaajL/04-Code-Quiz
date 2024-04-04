@@ -109,9 +109,40 @@ function checkAnswer(event) {
     const correctAnswer = quiz[questionCount].answers[parseInt(quiz[questionCount].correctAnswer) - 1].split(".")[1].trim();
 
     if (selectedAnswer === correctAnswer) {
-        p.textContent = "correct!";
+        p.textContent = "Correct!";
     } else{
         p.textContent = "Wrong!";
     }
     rightWrong.appendChild(p);
+    
+    // time out after 1 second
+    set setTimeout( () => {
+    }, 1000);
 }
+// Function to handle user selection of an answer
+function handleAnswerSelection(selectedAnswer) {
+    const currentQuestion = quiz[questionCount];
+    
+    if (selectedAnswer !== currentQuestion.correctAnswer) {
+        seconds -= 8; // Subtract 10 seconds for wrong answers
+    }
+
+    // Update timer display
+    timer.textContent = `Time: ${seconds}`;
+
+    // Increment the questionCount to move to the next question
+    questionCount++;
+
+    // Display the next question or end the quiz based on your logic
+    if (questionCount < quiz.length) {
+        displayNextQuestion();
+    } else {
+        endQuiz();
+    }
+
+// Add event listeners to answer buttons
+answerBtn.forEach(btn => {
+    btn.addEventListener('click', () => {
+        handleAnswerSelection(btn.dataset.answer);
+    });
+});
