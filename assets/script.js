@@ -154,8 +154,33 @@ function handleAnswerSelection(selectedAnswer) {
             console.log("End of Quiz. No more questions to display.");
         }
     }
+//Add score function
+function addScore(score) {
+    const newScore = {
+        initials: initials.value, // Assuming initials is an input field
+        score: score
+    };
 
+    rankList.push(newScore);
 
+    // Sort rankList based on scores in descending order
+    rankList.sort((a, b) => b.score - a.score);
+
+    // Update rankings display
+    updateRankings();
+}
+
+function updateRankings() {
+    // Clear existing rankings
+    rankings.innerHTML = "";
+
+    // Display the updated rankings
+    rankList.forEach((entry, index) => {
+        const rankEntry = document.createElement("li");
+        rankEntry.textContent = `${index + 1}. ${entry.initials}: ${entry.score}`;
+        rankings.appendChild(rankEntry);
+    });
+}
 
 
 
