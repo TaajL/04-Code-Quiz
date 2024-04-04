@@ -52,3 +52,25 @@ function handleQuizCompletion () {
     finished.style.display = "block";
     points.textContent = secondsLeft;
 }
+
+// start quiz
+const statQuiz () => {
+    beginQuiz.style.display = "none"
+    questions.style.display = "block"
+    questionCount = 0
+
+    setClock();
+    SetQeustion(questionCount)
+};
+// set question 
+function SetQeustion(id) {
+    if(id < questions.length){
+        const { questions, answers } = questions[id];
+
+        questions.textContent  = questions;
+
+        [answer1Btn, answer2Btn, answer3Btn, answer4Btn].forEach((btn,i) => {
+
+        });
+    }
+}
