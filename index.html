@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JavaScript Code Quiz</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/style.css">
+    <link rel="stylesheet" href="./assets/style.css">
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 </head>
 
@@ -43,8 +43,8 @@
             <div class="row">
                 <div class="col-3"></div>
                     <div class="col-6">
-                        <h2 id=" questions">Questions</h2>
-                        <ul> 
+                        <h2 id="questions">Questions</h2>
+                        <ul id="buttonBox"> 
                             <li><button id="answer1" value="0" class="btn btn-primary answerBtn">Answer1</button></li>
                             <li><button id="answer2" value="1" class="btn btn-primary answerBtn">Answer2</button></li>
                             <li><button id="answer3" value="2" class="btn btn-primary answerBtn">Answer3</button></li>
@@ -63,7 +63,7 @@
                         <div class="col-6">
                             <h3>Finished</h3>
                             <p>Final Score: <span id="points" class=" pl-1">0</span></p>
-                            <p>Enter Initials: <Span class="ml-1"><input placeholder="initials here"id="initials"></Span>
+                            <p>Enter Initials: <Span class="ml-1"><input placeholder="initials"id="initials"></Span>
                                 <button id="scoreSubmission" class="btn btn-primary  d-block">Enter Score</button>
                             </p>
                         </div>

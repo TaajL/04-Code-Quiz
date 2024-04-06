@@ -7,6 +7,7 @@ const points = document.querySelector("#points");
 const beginQuiz = document.querySelector("#beginQuiz");
 const qandA = document.querySelector("#qandA");
 const questions = document.querySelector("#questions");
+console.log(questions)
 let questionCount = 0;
 const rightWrong = document.querySelector("#rightWrong");
 const finished = document.querySelector("#finished");
@@ -61,7 +62,7 @@ const setClock = () => {
         seconds--;
         timer.textContent = `Time: ${seconds}s`;
 
-        if (seconds === 0 || questionCount === quiz.length) {
+        if (seconds <= 0 || questionCount > quiz.length) {
             clearInterval(timerInterval);
             handleQuizCompletion();
         }
@@ -78,6 +79,7 @@ function handleQuizCompletion() {
 // Start quiz
 const startQuiz = () => {
     beginQuiz.style.display = "none";
+    console.log(questions)
     questions.style.display = "block";
     questionCount = 0;
     setClock();
@@ -88,6 +90,7 @@ const startQuiz = () => {
 function setQuestion(id) {
     if (id < quiz.length) {
         const { question, answers } = quiz[id];
+        console.log(question)
         questions.textContent = question;
         [answer1Btn, answer2Btn, answer3Btn, answer4Btn].forEach((btn, i) => {
             btn.textContent = answers[i];
@@ -116,48 +119,54 @@ function checkAnswer(event) {
     rightWrong.appendChild(p);
     
     // time out after 1 second
-    set setTimeout( () => {
+     setTimeout( () => {
     }, 1000);
 }
 // Function to handle user selection of an answer
 function handleAnswerSelection(selectedAnswer) {
     const currentQuestion = quiz[questionCount];
     
-    if (selectedAnswer !== currentQuestion.correctAnswer) {
-        seconds -= 8; // Subtract 8 seconds for wrong answers
-    }
-
-    // Update timer display
-    timer.textContent = `Time: ${seconds}`;
-
-    // Increment the questionCount to move to the next question
-    questionCount++;
-
-    // Display the next question or end the quiz 
-    if (questionCount < quiz.length) {
-        displayNextQuestion();
+    // Check if the selected answer is correct
+    if (selectedAnswer === currentQuestion.correctAnswer) {
+        // Display "Correct!" message
+        displayAnswerResult("Correct!");
     } else {
-        endQuiz();
+        // Display "Wrong!" message and deduct 8 seconds for wrong answers
+        displayAnswerResult("Wrong!");
+        seconds -= 8;
+        timer.textContent = `Time: ${seconds}s`; // Update timer display
     }
-    function displayNextQuestion(currentQuestionIndex, questions) {
-        // Check if there are more questions to display
-        if (currentQuestionIndex < questions.length - 1) {
-            // Increment the current question index
-            const nextQuestionIndex = currentQuestionIndex + 1;
-    
-            // Get the next question from the questions array
-            const nextQuestion = questions[nextQuestionIndex];
-    
-            // Display the next question on the screen
-            console.log(`Next Question: ${nextQuestion}`);
-        } else {
-            console.log("End of Quiz. No more questions to display.");
-        }
+
+    // Move to the next question or end the quiz
+    questionCount++;
+    if (questionCount < quiz.length) {
+        setQuestion(questionCount); // Display the next question
+    } else {
+        endQuiz(); // End the quiz if all questions have been answered
     }
+}
+function endQuiz(){ 
+    const buttonBoxEl= document.getElementById("buttonBox")
+    buttonBoxEl.style.display = "none"
+    console.log("gameover")
+}
+// Function to display the result of the user's answer
+function displayAnswerResult(result) {
+    rightWrong.style.display = "block";
+    const p = document.createElement("p");
+    p.textContent = result;
+    rightWrong.appendChild(p);
+
+    // Hide the result message after 1 second
+    setTimeout(() => {
+        p.style.display = "none";
+    }, 1000);
+}
+
 //Add score function
 function addScore(score) {
     const newScore = {
-        initials: initials.value, // Assuming initials is an input field
+        initials: initials.value, 
         score: score
     };
 
@@ -183,11 +192,35 @@ function updateRankings() {
 }
 
 
-
-
-// Add event listeners to answer buttons
-answerBtn.forEach(btn => {
-    btn.addEventListener('click', () => {
-        handleAnswerSelection(btn.dataset.answer);
+// Add event listeners to all buttons for the click event
+document.querySelectorAll("button").forEach(button => {
+    button.addEventListener('click', (event) => {
+        // Check the id of the button clicked
+        switch (button.id) {
+            case "start":
+                startQuiz();
+                break;
+            case "scoreSubmission":
+                addScore(seconds);
+                break;
+            case "tryAgain":
+                // Add functionality for try again button
+                break;
+            case "clearScores":
+                // Add functionality for clear scores button
+                break;
+            case "viewScores":
+                // Add functionality for view scores button
+                break;
+            case "answer1":
+            case "answer2":
+            case "answer3":
+            case "answer4":
+                handleAnswerSelection(button.textContent);
+                break;
+            default:
+                // Handle other buttons if needed
+                break;
+        }
     });
-})};
+});
