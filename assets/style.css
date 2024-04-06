@@ -19,18 +19,18 @@ footer {
 #questions,
 #finished,
 #rank,
-#rightwrong {
+#rightwrong
+#tryAgain
+#clearScores {
     display: none;  
   } 
 
+
   body {
-    background-image: url(../assets/images/pexels-lukas-1420709.jpg);
-}
-
-
-
-
-
+    background-image: url('/Users/rashaadlogan/bootcamp/04-Code-Quiz/assets/images/pexels-lukas-1420709.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 /* Mobile */
 @media (max-width: 480px) {
     body {
