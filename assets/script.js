@@ -131,9 +131,9 @@ function handleAnswerSelection(selectedAnswer) {
         // Display "Correct!" message
         displayAnswerResult("Correct!");
     } else {
-        // Display "Wrong!" message and deduct 8 seconds for wrong answers
+        // Display "Wrong!" message and deduct 6 seconds for wrong answers
         displayAnswerResult("Wrong!");
-        seconds -= 8;
+        seconds -= 6;
         timer.textContent = `Time: ${seconds}s`; // Update timer display
     }
 
@@ -211,6 +211,9 @@ document.querySelectorAll("button").forEach(button => {
                 break;
             case "viewScores":
                 // Add functionality for view scores button
+                function viewScoreBtn(){
+                rank.style.display = rank.style.display === "none" ? "block" : "none";}
+
                 break;
             case "answer1":
             case "answer2":
