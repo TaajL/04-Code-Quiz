@@ -84,6 +84,11 @@ const startQuiz = () => {
     questionCount = 0;
     setClock();
     setQuestion(questionCount);
+
+    answer1Btn.classList.remove("hidden");
+    answer2Btn.classList.remove("hidden");
+    answer3Btn.classList.remove("hidden");
+    answer4Btn.classList.remove("hidden");
 };
 
 // Set question
@@ -192,6 +197,7 @@ function updateRankings() {
 }
 
 
+
 // Add event listeners to all buttons for the click event
 document.querySelectorAll("button").forEach(button => {
     button.addEventListener('click', (event) => {
@@ -204,16 +210,14 @@ document.querySelectorAll("button").forEach(button => {
                 addScore(seconds);
                 break;
             case "tryAgain":
-                // Add functionality for try again button
+                // 
+                restartQuiz();
                 break;
             case "clearScores":
-                // Add functionality for clear scores button
+                
                 break;
             case "viewScores":
-                // Add functionality for view scores button
-                function viewScoreBtn(){
-                rank.style.display = rank.style.display === "none" ? "block" : "none";}
-
+                
                 break;
             case "answer1":
             case "answer2":
@@ -222,8 +226,13 @@ document.querySelectorAll("button").forEach(button => {
                 handleAnswerSelection(button.textContent);
                 break;
             default:
-                // Handle other buttons if needed
+                
                 break;
         }
     });
 });
+
+
+
+
+
