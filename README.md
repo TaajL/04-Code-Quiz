@@ -4,6 +4,9 @@
  
     This is a timed quiz on java script code, where time is deducted for wrong answers. 
 
+    Deployed link: https://taajl.github.io/04-Code-Quiz/
+
+
  # User Story 
     AS A coding boot camp student
 I WANT to take a timed quiz on JavaScript fundamentals that stores high scores

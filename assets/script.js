@@ -224,7 +224,7 @@ function restartQuiz() {
   // Reset the timer
   seconds = 28;
   timer.textContent = `Time: ${seconds}s`;
-}
+
 
 // Call the function when the "Try Again" button is clicked
 
@@ -252,7 +252,7 @@ function showQuestion(index) {
   answer2Btn.textContent = currentQuestion.answers[1];
   answer3Btn.textContent = currentQuestion.answers[2];
   answer4Btn.textContent = currentQuestion.answers[3];
-}
+}}
 
 
 // Add event listeners to all buttons for the click event
