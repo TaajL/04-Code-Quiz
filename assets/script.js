@@ -180,11 +180,20 @@ function addScore(score) {
     // Sort rankList based on scores in descending order
     rankList.sort((a, b) => b.score - a.score);
 
+    // Save rankList to local storage as a JSON string
+    localStorage.setItem('rankings', JSON.stringify(rankList));
+
     // Update rankings display
     updateRankings();
 }
 
 function updateRankings() {
+    // Retrieve rankList from local storage if it exists
+    const storedRankings = localStorage.getItem('rankings');
+
+    if (storedRankings) {
+        rankList = JSON.parse(storedRankings);
+    }
     // Clear existing rankings
     rankings.innerHTML = "";
 
@@ -195,6 +204,71 @@ function updateRankings() {
         rankings.appendChild(rankEntry);
     });
 }
+
+function restartQuiz() {
+  // Reset variables or states to their initial values
+  score = 0;
+  currentQuestionIndex = 0;
+
+  // Clear user input or selections
+  clearUserSelections();
+
+  // Update the quiz interface to show the first question
+  showQuestion(currentQuestionIndex);
+
+  // Show the questions section and hide the finished section
+  questions.style.display = "block";
+  finished.style.display = "none";
+
+  // Reset the timer
+  seconds = 28;
+  timer.textContent = `Time: ${seconds}s`;
+}
+
+// Call the function when the "Try Again" button is clicked
+
+
+
+
+function clearUserSelections() {
+  // Clear the selected answer for each answer button
+  answer1Btn.checked = false;
+  answer2Btn.checked = false;
+  answer3Btn.checked = false;
+  answer4Btn.checked = false;
+
+  // Clear any existing message in the rightWrong section
+  rightWrong.textContent = "";
+}
+
+function showQuestion(index) {
+  // Get the current question object
+  const currentQuestion = quiz[index];
+
+  // Update the quiz interface to display the current question
+  questions.textContent = currentQuestion.question;
+  answer1Btn.textContent = currentQuestion.answers[0];
+  answer2Btn.textContent = currentQuestion.answers[1];
+  answer3Btn.textContent = currentQuestion.answers[2];
+  answer4Btn.textContent = currentQuestion.answers[3];
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
