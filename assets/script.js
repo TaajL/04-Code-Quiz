@@ -197,6 +197,7 @@ function updateRankings() {
     // Clear existing rankings
     rankings.innerHTML = "";
 
+
     // Display the updated rankings
     rankList.forEach((entry, index) => {
         const rankEntry = document.createElement("li");
@@ -252,24 +253,6 @@ function showQuestion(index) {
   answer3Btn.textContent = currentQuestion.answers[2];
   answer4Btn.textContent = currentQuestion.answers[3];
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 // Add event listeners to all buttons for the click event
